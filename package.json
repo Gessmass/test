@@ -2,17 +2,30 @@
   "name": "tests",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.13.3",
+    "dotenv": "^16.4.1",
+    "electronmon": "^2.0.2",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "node",
+    "start:electron": "electronmon . --trace-warnings",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -34,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "electron": "^28.2.0"
   }
 }
