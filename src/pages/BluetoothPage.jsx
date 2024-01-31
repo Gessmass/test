@@ -46,6 +46,7 @@ const DataForm = styled.div`
 
 const BluetoothPageWrapper = styled.div`
     display: flex;
+    border: 2px solid lime;
 `
 
 const DataDisplay = styled.div`

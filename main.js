@@ -1,10 +1,6 @@
-import {app, BrowserWindow} from 'electron';
-import path from 'path';
-import {fileURLToPath} from 'url';
+const {app, BrowserWindow} = require('electron')
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+const isDev = true
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -15,7 +11,9 @@ const createWindow = () => {
     }
   });
   
-  mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
+  mainWindow.loadURL(
+    isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '/build/index.html')}`
+  );
 }
 
 app.whenReady().then(createWindow);
@@ -25,6 +23,7 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
