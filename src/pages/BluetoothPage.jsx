@@ -1,11 +1,11 @@
 import styled from '@emotion/styled'
+import {useState, useEffect} from "react";
 import {Button, Dropdown, Menu} from "antd"
 import {DownloadOutlined} from "@ant-design/icons"
 
-
 export const BluetoothPage = () => {
   
-  const devices = ["device1", "device2"]
+  const [devices, setDevices] = useState([])
   
   const menu = (
     <Menu>
@@ -16,19 +16,34 @@ export const BluetoothPage = () => {
   )
   
   
+  const discoverBluetoothDevices = async () => {
+    try {
+      const device = await navigator.bluetooth.requestDevice({
+        acceptAllDevices: true,
+      });
+      setDevices((prevDevices) => [...prevDevices, device.name]);
+    } catch (error) {
+      console.error("Erreur lors de la recherche d'appareils Bluetooth :", error);
+    }
+  };
+  
+  
+  console.log(devices)
+  
   return (
     <BluetoothPageWrapper>
       <DataForm>
         <Dropdown overlay={menu}>
           <Button>
-            Select Device
+            Device list
           </Button>
         </Dropdown>
-        <Button type="primary" icon={<DownloadOutlined/>}>
-          Fetch Data
+        <Button type="primary" icon={<DownloadOutlined/>} onClick={() => discoverBluetoothDevices()}>
+          Scan Devices
         </Button>
       </DataForm>
       <DataDisplay>
+      
       </DataDisplay>
     </BluetoothPageWrapper>
   )
@@ -46,7 +61,6 @@ const DataForm = styled.div`
 
 const BluetoothPageWrapper = styled.div`
     display: flex;
-    border: 2px solid lime;
 `
 
 const DataDisplay = styled.div`
