@@ -7,5 +7,12 @@
         "runtime": "automatic"
       }
     ]
-  ]
+  ],
+  "env": {
+    "electron": {
+      "presets": [
+        "@babel/preset-env"
+      ]
+    }
+  }
 }

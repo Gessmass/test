@@ -2,8 +2,9 @@ import styled from '@emotion/styled'
 import {useState, useEffect} from "react";
 import {Button, Dropdown, Menu} from "antd"
 import {DownloadOutlined, RedoOutlined} from "@ant-design/icons"
-import {discoverBluetoothDevices} from "../connections/bluetooth";
+// import {discoverBluetoothDevices} from "../connections/bluetooth";
 import React from "react";
+import {ipcRenderer} from 'electron'
 
 
 export const BluetoothPage = () => {
@@ -18,6 +19,10 @@ export const BluetoothPage = () => {
     </Menu>
   )
   
+  const discoverBluetoothDevices = () => {
+    console.log('front')
+    ipcRenderer.send('select-bluetooth-device')
+  }
   
   return (
     <BluetoothPageWrapper>
