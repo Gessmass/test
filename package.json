@@ -31,7 +31,7 @@
     "dev:electron": "wait-on http://localhost:3000 && electronmon .",
     "webpackdevstart": "webpack-dev-server --mode development",
     "start": "node",
-    "start:electron": "webpack --mode production && electron .",
+    "start:electron": "webpack --mode production && electron . --trace-warnings",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
