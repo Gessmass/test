@@ -3,6 +3,7 @@ import {LayoutPage} from './pages/LayoutPage.jsx'
 import {BluetoothPage} from "./pages/BluetoothPage"
 import {WifiPage} from "./pages/WifiPage"
 import {EthernetPage} from "./pages/EthernetPage"
+import React from "react";
 
 export const App = () => {
   return (

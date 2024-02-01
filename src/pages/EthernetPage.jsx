@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 import {Button} from "antd"
 import {DownloadOutlined} from "@ant-design/icons"
+import React from "react";
 
 export const EthernetPage = () => {
   return (
     <EthernetPageWrapper>
       <DataForm>
-        <Button type="primary" icon={<DownloadOutlined />}>Fetch Data</Button>
+        <Button type="primary" icon={<DownloadOutlined/>}>Fetch Data</Button>
       </DataForm>
       <DataDisplay>
       </DataDisplay>
@@ -15,16 +16,16 @@ export const EthernetPage = () => {
 }
 
 const DataForm = styled.div`
-  width: 50%;
-  padding: 5px;
-  display: flex;
-align-items: end;
-  justify-content: center;
+    width: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
 `
 
 const EthernetPageWrapper = styled.div`
-  display: flex;
-  
+    display: flex;
+
 `
 
 const DataDisplay = styled.div`

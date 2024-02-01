@@ -1,6 +1,11 @@
 {
   "presets": [
-    "@babel/preset-react"
-  ],
-  "sourceType": "module"
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ]
+  ]
 }
