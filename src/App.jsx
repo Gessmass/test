@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {LayoutPage} from './pages/LayoutPage.jsx'
-import {BluetoothPage} from "./pages/BluetoothPage"
-import {WifiPage} from "./pages/WifiPage"
-import {EthernetPage} from "./pages/EthernetPage"
+import {LayoutPage} from '../../medeo/electron/app/src/pages/LayoutPage.jsx'
+import {BluetoothPage} from "../../medeo/electron/app/src/pages/BluetoothPage"
+import {WifiPage} from "../../medeo/electron/app/src/pages/WifiPage"
+import {EthernetPage} from "../../medeo/electron/app/src/pages/EthernetPage"
 import React from "react";
 
 export const App = () => {

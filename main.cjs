@@ -23,31 +23,6 @@ const createWindow = () => {
   
   mainWindow.webContents.openDevTools()
   
-  mainWindow.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
-    event.preventDefault()
-    selectBluetoothCallback = callback
-    const result = deviceList.find((device) => {
-      return device.deviceName === 'test'
-    })
-    if (result) {
-      callback(result.deviceId)
-    } else {
-    
-    }
-  })
-  ipcMain.on('cancel-bluetooth-request', (event) => {
-    selectBluetoothCallback('')
-  })
-  
-  ipcMain.on('bluetooth-pairing-response', (event, response) => {
-    bluetoothPinCallback(response)
-  })
-  
-  mainWindow.webContents.session.setBluetoothPairingHandler((details, callback) => {
-    bluetoothPinCallback = callback
-    mainWindow.webContents.send('bluetooth-pairing-request', details)
-  })
-  
   mainWindow.loadURL(
     isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, 'dist', 'index.html')}`
   ).catch((error) => {
